@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getData } from '..modules/productData';
+import { getData } from '../modules/products';
 
 class DisplayProductData extends Component {
     state = {
@@ -21,11 +21,7 @@ class DisplayProductData extends Component {
         dataIndex = (
             <div id="index">
                 {this.state.productData.map(item => {
-                    return (
-                        <div key={item.id} id={`product-${item.id}`}>
-                            {item.name}{item.description}{item.price}
-                        </div>
-                    )
+                    return <div key={item.id}>{item.name}{item.description}{item.price}</div>
                 })}
             </div>
         )
@@ -36,13 +32,8 @@ class DisplayProductData extends Component {
       <div>
           {dataIndex}
       </div>
-  
-    // <>
-    //   <h1 id="menu-header">Menu</h1>
-    //   <div id="index">products</div>
-    // </>
     )
   }
 };
 
-export default {DisplayProductData};
+export default DisplayProductData;
