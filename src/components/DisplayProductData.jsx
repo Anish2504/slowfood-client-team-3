@@ -1,20 +1,17 @@
-import React, { Component } from "react";
-import { getData } from '../modules/products';
+ 
+import React, { Component } from 'react';
+import { getData } from '../modules/productData';
 
 class DisplayProductData extends Component {
-    state = {
+	state = {
 		productData: []
 	}
 
 	componentDidMount() {
 		this.getProductData()
 	}
-  
-    async getProductData() {
-    let result = await getData();
-    this.setState({ productData: result.data.products })
-    }
 
+<<<<<<< HEAD
   render() {
     let dataIndex
     if (Array.isArray(this.state.productData) && this.state.productData.length) {
@@ -27,13 +24,31 @@ class DisplayProductData extends Component {
         )
       }
   
+=======
+	async getProductData() {
+		let result = await getData();
+		this.setState({ productData: result.data.products })
+	}
 
-  return (
-      <div>
-          {dataIndex}
-      </div>
-    )
-  }
-};
+	render() {
+		let dataIndex
+		if (Array.isArray(this.state.productData) && this.state.productData.length ) {
+			dataIndex = (
+				<div id="index">
+					{this.state.productData.map(item => {
+						return <div key={item.id}>{item.name}{item.description}{item.price}</div>
+					})}
+				</div>
+			)
+		} 
+>>>>>>> f5c0bb9f1cb0fc3b3e5278fc97631c9d656e3adb
+
+		return (
+			<div>
+				{dataIndex}
+			</div>
+		)
+	}
+}
 
 export default DisplayProductData;
